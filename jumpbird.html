@@ -4,47 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Jump Bird</title>
-    <style>
-        *{
-            margin: 0px;
-            padding: 0px;
-        }
-        body, html{
-            width: 100%;
-            height: 100%;
-        }
-        body{
-            display: flex;
-            justify-content: center;
-            overflow: hidden;
-        }
-        img{
-            width: 100px;
-            height: 100px;
-        }
-        #fundo{
-            width: 100%;
-            height: 100%;
-            display: flex;
-            justify-content: center;
-        }
-        #backgrounde{
-            width: 100%;
-            height: 100%;
-        }
-        #birdsprite{
-            width: 15vh;
-            height: 15vh;
-            position: absolute;
-            top: 35%;
-        }
-        #piso{
-            position: absolute;
-            bottom: 0%;
-            width: 100%;
-            height: 7.9vh;
-        }
-</style>
+    <link rel="stylesheet" href="globalstyle.css">
 </head>
 <body id="corpo">
     <div id="fundo">
@@ -52,38 +12,6 @@
 </div>
 <img id="birdsprite" src="birdtop.png" alt="">
 <div id="piso"></div>
-
-    <script>
-        let cenario = document.getElementById("backgrounde")
-        let birdsprite = document.getElementById("birdsprite")
-        let verificar = 0
-        document.getElementById("corpo").addEventListener("click", function mudar() {
-            if(verificar == 0){
-                document.getElementById("birdsprite").src = "birddown.png"
-            verificar = 1
-            }else{
-                document.getElementById("birdsprite").src = "birdtop.png"
-                verificar = 0
-            }
-        })
-        var posicao = parseInt(window.getComputedStyle(document.getElementById("birdsprite")).top)
-        function moverprabaixo() {
-            if(posicao >= window.innerHeight){
-                posicao = 0
-            }else{
-                posicao++
-                birdsprite.style.top = posicao + "px"
-                birdsprite.style.transform = "rotate(60deg)"
-            }
-        
-        }
-        setInterval(moverprabaixo, 8)
-
-        document.getElementById("corpo").addEventListener("click", function moverPraCima() {
-           var posicao2 = birdsprite.style.top.replace("px", "")
-            birdsprite.style.top = (posicao2 - 5) + "px"
-            posicao = null
-        })
-    </script>
+    <script src="globaljs.js"></script>
 </body>
 </html>

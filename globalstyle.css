@@ -1,0 +1,97 @@
+*{
+    margin: 0px;
+    padding: 0px;
+}
+/* Tela de login */
+body, html{
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+#bordadaplacadelogin{
+    width: 60vh;
+    height: 60vh;
+    max-width: 90%;
+    background-color: red;
+    display: flex;
+    justify-content: center;
+    align-items: start;
+}
+#botaodeentrar{
+    background-color: blue;
+    width: 60%;
+    height: 20%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+#centralizarflexi{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+#fundodateladelogin{
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0%;
+}
+img{
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0%;
+    z-index: -1;
+}
+h1{
+    font-family: 'Pixelify Sans', sans-serif;
+    color: black;
+    text-align: center;
+    position: relative;
+    top: 10%;
+    font-size: 7vh;
+    font-weight: bold;
+    margin: 0%;
+}
+p{
+    font-size: 7vh;
+    font-family: 'Pixelify Sans', sans-serif;
+    color: white;
+    font-weight: bold;
+}
+/* Jump Bird */
+#corpo{
+    display: flex;
+    justify-content: center;
+    overflow: hidden;
+}
+#fundo{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+}
+#backgrounde{
+    width: 100%;
+    height: 100%;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    user-select: none;
+}
+#birdsprite{
+    width: 15vh;
+    height: 15vh;
+    position: absolute;
+    top: 35%;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    user-select: none;
+}
+#piso{
+    position: absolute;
+    bottom: 0%;
+    width: 100%;
+    height: 7.9vh;
+}
