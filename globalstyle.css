@@ -9,21 +9,39 @@ body, html{
     overflow: hidden;
 }
 #bordadaplacadelogin{
-    width: 60vh;
-    height: 60vh;
+    width: 40vh;
+    height: 40vh;
     max-width: 90%;
-    background-color: red;
     display: flex;
     justify-content: center;
     align-items: start;
+    border-radius: 0% 10% 10%;
 }
-#botaodeentrar{
-    background-color: blue;
-    width: 60%;
-    height: 20%;
+.botao{
+    background-color: #FFFAFA;
+    width: 28vh;
+    height: 10vh;
     display: flex;
     align-items: center;
     justify-content: center;
+    border-radius: 10%;
+    z-index: 1;
+}
+#botaodeentrar{
+    margin-top: 3vh;
+}
+#botaodesair{
+    margin-top: 30vh;
+}
+.botao:hover{
+    cursor: pointer;
+    background-color: #FF8C00;
+}
+#link > .PdoBotao:hover{
+    color: rgb(0, 255, 0);
+}
+#botaodesair > .PdoBotao:hover{
+    color: red;
 }
 #centralizarflexi{
     width: 100%;
@@ -50,16 +68,35 @@ h1{
     color: black;
     text-align: center;
     position: relative;
-    top: 10%;
+    top: 25%;
     font-size: 7vh;
     font-weight: bold;
     margin: 0%;
+    display: block;
+    text-align: center;
 }
-p{
+.PdoBotao{
     font-size: 7vh;
     font-family: 'Pixelify Sans', sans-serif;
-    color: white;
+    color: black;
     font-weight: bold;
+    text-align: center;
+}
+#centralizarflexi2{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    top: 0%;
+}
+.passaronocantodatelaClass{
+    width: 8vh;
+    height: 8vh;
+}
+a{
+    text-decoration: none;
 }
 /* Jump Bird */
 #corpo{

@@ -1,6 +1,6 @@
 let cenario = document.getElementById("backgrounde") 
         let birdsprite = document.getElementById("birdsprite")
-        /* Mudar sprite */
+        /* Mudar sprite no jogo */
         let verificar = 0
         document.getElementById("corpo").addEventListener("click", function mudarsprite() {
             if(verificar == 0){
