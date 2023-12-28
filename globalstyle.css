@@ -124,7 +124,7 @@ a{
     top: 35%;
     -webkit-user-select: none;
     -moz-user-select: none;
-    user-select: none;
+    user-select: none;  
 }
 #piso{
     position: absolute;
