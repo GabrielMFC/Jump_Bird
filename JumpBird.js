@@ -1,5 +1,4 @@
 let cenario = document.getElementById("backgrounde")
-var verificarimg = undefined
         let birdsprite = document.getElementById("birdsprite")
         /* Mudar sprite no jogo */
         let verificar = 0
@@ -30,31 +29,24 @@ var verificarimg = undefined
                 posicao = 0
             }else{
                 posicao++
-                birdsprite.style.top = posicao + "px"
-            }
-            if(verificarimg == 0){
-            verificarimg = 1
-            birdsprite.style.transform = "rotate(60deg)"
-            }
+                birdsprite.style.top = posicao + "px"}
         }
         var intervalId
         function iniciarAnimacao(){
             if(intervalId){
                 clearInterval(intervalId);
             }
-            intervalId = setInterval(moverprabaixo, 6)
+            intervalId = setInterval(moverprabaixo, 0.1)
         }
         iniciarAnimacao();
 
         document.getElementById("corpo").addEventListener("click", function moverPraCima() {
             var posicao2 = birdsprite.style.top.replace("px", "")
-            posicao = (posicao2 - 100)
+            posicao = (posicao2 - 80)
             birdsprite.style.top = posicao + "px"
         })
         addEventListener("keydown", function moverPraCima() {       
             var posicao2 = birdsprite.style.top.replace("px", "")
-            posicao = (posicao2 - 155)
+            posicao = (posicao2 - 80)
             birdsprite.style.top = posicao + "px"
-            birdsprite.style.transform = "rotate(-30deg)"
         })
-        /* Fim do tópico Posicionamento do sprite */
