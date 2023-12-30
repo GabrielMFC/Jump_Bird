@@ -5,7 +5,7 @@
     margin-left: 0px;
 }
 body, html{
-    width: 110%;
+    width: 200%;
     height: 100%;
     overflow-y: hidden;
     overflow-x: scroll;
@@ -87,17 +87,24 @@ h1{
     width: 40vh;
     position: absolute;
     bottom: 7.8%;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    user-select: none;
 }
 .obstaculoinvertido{
     width: 40vh;
     position: absolute;
     top: 0%;
     transform: rotate(180deg);
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    user-select: none;
 }
 #obstaculo1{
     left: 75%;
 }
 #obstaculo2{
+    height: 30vh;
     left: 75%;
     position: absolute
 }

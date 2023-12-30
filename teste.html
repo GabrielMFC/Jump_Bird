@@ -6,26 +6,31 @@
     <title>Teste</title>
     <style>
         body, html{
-            width: 100%;
-            height: 100%;
+            overflow-y: hidden;
+            overflow-x: visible;
+            height: 100vh;
+            background-image: url("cenario.png");
+            background-position: center;
+            background-size: 100vh;
+            background-repeat: repeat-x;
         }
         p{
-            width: 500%;
-            height: 2vh;
+            height: 3vh;
+            width: 500vh;
         }
         #divteste{
             background-color: blue;
             width: 15vh;
             height: 15vh;
             border-radius: 50%;
-            position: absolute;
+            
             top: 55%;
         }
     </style>
 </head>
 <body>
     <div id="divteste"></div>
-    <p>Olaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa</p>
+    <p>oi</p>
     <script>
         window.onscroll = function() {
   var divteste = document.getElementById('divteste');

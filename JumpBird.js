@@ -23,14 +23,14 @@ let cenario = document.getElementById("backgrounde")
         /* Fim do tópico Mudar sprite */
 
         /* Posicionamento do sprite */
-        
+          
         var posicao = parseInt(window.getComputedStyle(document.getElementById("birdsprite")).top)
         function moverprabaixo() {
             if(posicao >= window.innerHeight){
                 posicao = 0
             }else{
                 posicao++
-                birdsprite.style.top = posicao + "px"}
+                birdsprite.style.op = posicao + "px"}
         }
         var intervalId
         function iniciarAnimacao(){
