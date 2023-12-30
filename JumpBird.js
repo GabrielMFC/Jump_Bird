@@ -23,6 +23,7 @@ let cenario = document.getElementById("backgrounde")
         /* Fim do tópico Mudar sprite */
 
         /* Posicionamento do sprite */
+        
         var posicao = parseInt(window.getComputedStyle(document.getElementById("birdsprite")).top)
         function moverprabaixo() {
             if(posicao >= window.innerHeight){
@@ -50,3 +51,6 @@ let cenario = document.getElementById("backgrounde")
             posicao = (posicao2 - 80)
             birdsprite.style.top = posicao + "px"
         })
+        window.onscroll = function() {
+            birdsprite.style.left = window.pageXOffset + 'px';
+          };

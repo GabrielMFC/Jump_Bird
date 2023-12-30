@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Teste</title>
+    <style>
+        body, html{
+            width: 100%;
+            height: 100%;
+        }
+        p{
+            width: 500%;
+            height: 2vh;
+        }
+        #divteste{
+            background-color: blue;
+            width: 15vh;
+            height: 15vh;
+            border-radius: 50%;
+            position: absolute;
+            top: 55%;
+        }
+    </style>
+</head>
+<body>
+    <div id="divteste"></div>
+    <p>Olaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa</p>
+    <script>
+        window.onscroll = function() {
+  var divteste = document.getElementById('divteste');
+  divteste.style.left = window.pageXOffset + 'px';
+};
+    </script>
+</body>
+</html>
