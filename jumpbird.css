@@ -94,3 +94,10 @@ h1{
     top: 0%;
     transform: rotate(180deg);
 }
+#obstaculo1{
+    left: 75%;
+}
+#obstaculo2{
+    left: 75%;
+    position: absolute
+}
