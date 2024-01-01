@@ -5,37 +5,255 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Teste</title>
     <style>
+        *{
+            margin: 0%;
+            padding: 0%;
+        }
         body, html{
-            overflow-y: hidden;
-            overflow-x: visible;
-            height: 100vh;
-            background-image: url("cenario.png");
-            background-position: center;
-            background-size: 100vh;
-            background-repeat: repeat-x;
+            position: fixed;
+            width: 100%;
+            height: 100%;
+            overflow: hidden; 
         }
-        p{
-            height: 3vh;
-            width: 500vh;
-        }
-        #divteste{
-            background-color: blue;
-            width: 15vh;
-            height: 15vh;
-            border-radius: 50%;
+        #birdsprite{
             position: absolute;
-            top: 55%;
+            width: 13vh;
+            height: 13vh;
+            top: 40%;
+            z-index: 2;
+            left: 10%;
+        }
+        #fundo{
+            width: 100%;
+            height: 100%;
+            z-index: 1;
+        }
+        #fundodocenário{
+            position: absolute;
+            width: 100%;
+            height: 100%;
+        }
+        #colisaoDoPiso{
+            position: absolute;
+            bottom: 0%;
+            width: 100%;
+            height: 8vh;
+        }
+        #colisaoDoTeto{
+            position: absolute;
+            width: 100%;
+            height: 4vh;
+        }
+        .conjunto{
+            width: 100%;
+            height: 100%;
+        }
+        .obstaculo{
+            position: absolute;
+            right: 105%;
+            bottom: 7.7%;
+            width: 30vh;
+            height: 30vh;
+            margin-right: 20%;
+            margin-left: 20%;
+            z-index: 0;
+        }
+        .obstaculoinvertido{
+            position: absolute;
+            right: 105%;
+            width: 30vh;
+            height: 30vh;
+            transform: rotate(180deg);
+            top: 0%;
+            margin-right: 20%;
+            margin-left: 20%;
+            z-index: 0;
+        }
+        .obstaculoativado{
+            animation: AnimacaoDoObstaculo 4s infinite linear;
+        }
+        #PlacarDePontos{
+            position: absolute;
+            background-color: #FF8C00;
+            width: 25vh;
+            height: 8vh;
+            top: 0%;
+            right: 0;
+            border-radius: 0% 0% 0% 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border: 1px solid white;
+            border-top: none;
+        }
+        #pontos{
+            font-size: 5vh;
+            color: white;
+            font-family: sans-serif;
+        }
+        @keyframes AnimacaoDoObstaculo {
+            0%{
+                left: 100%;
+            }
+            50%{
+                left: 45%;
+            }
+            100%{
+                left: -42.5vh;
+            }
         }
     </style>
 </head>
-<body>
-    <div id="divteste"></div>
-    <p>oi</p>
+<body id="corpo">
+    <div id="fundo">
+        <img id="birdsprite" class="PassaroCaindoATIVAR" src="birddown.png" alt="">
+        <img id="fundodocenário" src="cenario.png">
+        <div id="colisaoDoPiso"></div>
+        <div id="colisaoDoTeto"></div>
+
+        <div id="conjunto1" class="conjunto">
+            <img class="obstaculoinvertido" id="obstaculo1DoConjunto1" src="obstaculo.png">
+            <img class="obstaculo" id="obstaculo2DoConjunto1" src="obstaculo.png">
+        </div>
+        
+        <div id="conjunto2">
+            <img src="obstaculo.png" class="obstaculo" id="obstaculo1DoConjunto2">
+            <img src="obstaculo.png" class="obstaculoinvertido" id="obstaculo2DoConjunto2">
+        </div>
+
+        <div id="conjunto3">
+            <img src="obstaculo.png" class="obstaculo" id="obstaculo1DoConjunto3">
+            <img src="obstaculo.png" class="obstaculoinvertido" id="obstaculo2DoConjunto3">
+        </div>
+
+        <div id="conjunto4">
+            <img src="obstaculo.png" class="obstaculo" id="obstaculo1DoConjunto4">
+            <img src="obstaculo.png" class="obstaculoinvertido" id="obstaculo2DoConjunto4">
+        </div>
+        <div id="PlacarDePontos"><p id="pontos">1</p></div>
+    </div>
     <script>
-        window.onscroll = function() {
-  var divteste = document.getElementById('divteste');
-  divteste.style.left = window.pageXOffset + 'px';
-};
+
+        let min = 1
+        let max = 8
+        let tamanhominimo1 = 90
+        let tamanhomaximo1 = 200
+
+        let tamanhominimo2 = 60
+        let tamanhomaximo2 = 100
+
+        function GerarNumeroAleatorio(min, max) {
+        numero = Math.floor(Math.random() * (max - min))
+        }
+        function GerarTamanhoAleatorio(tamanhomaximo1, tamanhominimo1){
+            tamanho = Math.floor(Math.random() * (tamanhomaximo1 - tamanhominimo1))
+            tamanho2 = Math.floor(Math.random() * (tamanhomaximo2 - tamanhominimo2))
+        }
+        setInterval(function() { GerarNumeroAleatorio(min, max)
+            GerarTamanhoAleatorio(tamanhomaximo1, tamanhominimo1) 
+            GerarObstaculos()}, 1500)
+
+        function GerarObstaculos() {
+    
+            if(numero == 1 || numero == 2){
+                document.getElementById("obstaculo1DoConjunto1").classList.add("obstaculoativado")
+                document.getElementById("obstaculo2DoConjunto1").classList.add("obstaculoativado")
+
+                document.getElementById
+                ("obstaculo1DoConjunto1").style.height = tamanho2 + "vh"
+                document.getElementById
+                ("obstaculo1DoConjunto1").style.height = tamanho + "vh"
+            }
+            if(numero == 3 || numero == 4){
+                document.getElementById("obstaculo1DoConjunto2").classList.add("obstaculoativado")
+                document.getElementById("obstaculo2DoConjunto2").classList.add("obstaculoativado")
+
+                document.getElementById
+                ("obstaculo1DoConjunto1").style.height = tamanho + "vh"
+                document.getElementById
+                ("obstaculo1DoConjunto1").style.height = tamanho2 + "vh"
+            }
+            if(numero == 5 || numero == 6){
+                document.getElementById("obstaculo1DoConjunto3").classList.add("obstaculoativado")
+                document.getElementById("obstaculo2DoConjunto3").classList.add("obstaculoativado")
+
+                document.getElementById
+                ("obstaculo1DoConjunto1").style.height = tamanho2 + "vh"
+                document.getElementById
+                ("obstaculo1DoConjunto1").style.height = tamanho + "vh"
+        
+            if(numero == 7 || numero == 8){
+                document.getElementById("obstaculo1DoConjunto4").classList.add("obstaculoativado")
+                document.getElementById("obstaculo2DoConjunto4").classList.add("obstaculoativado")
+
+                document.getElementById
+                ("obstaculo1DoConjunto1").style.height = tamanho + "vh"
+                document.getElementById
+                ("obstaculo1DoConjunto1").style.height = tamanho2 + "vh"
+            }
+        }}
+
+        let cenario = document.getElementById("fundodocenário")
+        let birdsprite = document.getElementById("birdsprite")
+        /* Mudar sprite no jogo */
+        let verificar = 0
+        document.getElementById("corpo").addEventListener("click", function mudarsprite() {
+            if(verificar == 0){
+                document.getElementById("birdsprite").src = "birddown.png"
+            verificar = 1
+            }else{
+                document.getElementById("birdsprite").src = "birdtop.png"
+                verificar = 0
+            }
+        })
+        addEventListener("keydown", function mudarsprite() {
+            if(verificar == 0){
+                document.getElementById("birdsprite").src = "birddown.png"
+            verificar = 1
+            }else{
+                document.getElementById("birdsprite").src = "birdtop.png"
+                verificar = 0
+            }
+        })
+        /* Fim do tópico Mudar sprite */
+
+        /* Posição do sprite na tela */
+        var posicao = parseInt(window.getComputedStyle(document.getElementById("birdsprite")).top)
+        function moverprabaixo() {
+            if(posicao >= window.innerHeight){
+                posicao = 0
+            }else{
+                posicao++
+                birdsprite.style.top = posicao + "px"}
+        }
+        var intervalId
+        function iniciarAnimacao(){
+            if(intervalId){
+                clearInterval(intervalId);
+            }
+            intervalId = setInterval(moverprabaixo, 0.1)
+        }
+        iniciarAnimacao();
+
+        document.getElementById("corpo").addEventListener("click", function moverPraCima() {
+            var posicao2 = birdsprite.style.top.replace("px", "")
+            posicao = (posicao2 - 80)
+            birdsprite.style.top = posicao + "px"
+        })
+        addEventListener("keydown", function moverPraCima() {       
+            var posicao2 = birdsprite.style.top.replace("px", "")
+            posicao = (posicao2 - 80)
+            birdsprite.style.top = posicao + "px"
+        })
+        /* Fim do tópico de posicionar o sprite na tela */
+        /* Tópico de pontos */
+        let ponto = document.getElementById("pontos")
+        let NumeroDosPontos = 1
+        function AumentarPontos() {
+            NumeroDosPontos++
+            pontos.innerHTML = NumeroDosPontos
+        }
+        setInterval(AumentarPontos, 1000)
     </script>
 </body>
-</html>
+</html

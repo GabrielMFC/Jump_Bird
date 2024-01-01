@@ -51,6 +51,3 @@ let cenario = document.getElementById("backgrounde")
             posicao = (posicao2 - 80)
             birdsprite.style.top = posicao + "px"
         })
-        window.onscroll = function() {
-            birdsprite.style.left = window.pageXOffset + 'px';
-          };
