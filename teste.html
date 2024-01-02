@@ -4,6 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Teste</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Pixelify+Sans&display=swap" rel="stylesheet">
     <style>
         *{
             margin: 0%;
@@ -14,6 +17,9 @@
             width: 100%;
             height: 100%;
             overflow: hidden; 
+        }
+        a{
+            text-decoration: none;
         }
         #birdsprite{
             position: absolute;
@@ -45,8 +51,8 @@
             height: 4vh;
         }
         .conjunto{
-            width: 100%;
-            height: 100%;
+            width: 115vw;
+            height: 115vh;
         }
         .obstaculo{
             position: absolute;
@@ -70,7 +76,7 @@
             z-index: 0;
         }
         .obstaculoativado{
-            animation: AnimacaoDoObstaculo 4s infinite linear;
+            animation: AnimacaoDoObstaculo 5s infinite linear;
         }
         #PlacarDePontos{
             position: absolute;
@@ -89,7 +95,97 @@
         #pontos{
             font-size: 5vh;
             color: white;
-            font-family: sans-serif;
+            font-family: 'Pixelify Sans', sans-serif;
+        }
+        #centralizarteladegameoverflexi{
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .gameover{
+            position: absolute;
+            background-color: #FF8C00;
+            width: 40vh;
+            height: 50vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            border: 2px solid white;
+            border-radius: 10% 10% 10% 10%;
+        }
+        .gameovertitle{
+            font-family: 'Pixelify Sans', sans-serif;
+            color: black;
+            background-color: white;
+            font-size: 5vh;
+            position: absolute;
+            top: 10%;
+            width: 30vh;
+            height: 10vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border-radius: 10% 10% 10% 10%;
+        }
+        .pontosfinais{
+            position: absolute;
+            top: 35%;
+            background-color: white;
+            font-family: 'Pixelify Sans', sans-serif;
+            color: yellowgreen;
+            font-weight: bold;
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border-radius: 0%;
+        }
+        .tentardnv{
+            font-family: 'Pixelify Sans', sans-serif;
+            color: #FF8C00;
+            background-color: white;
+            font-weight: bold;
+            font-size: 3.2vh;
+            height: 10vh;
+            width: 30vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 5%;
+            border-radius: 10% 0% 10% 10%;
+            position: absolute;
+            bottom: 30%;
+            cursor: pointer;
+        }
+        .sairdaqui{
+            font-family: 'Pixelify Sans', sans-serif;
+            color: #FF8C00;
+            background-color: white;
+            font-weight: bold;
+            font-size: 4vh;
+            height: 10vh;
+            width: 30vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 5%;
+            border-radius: 10% 0% 10% 10%;
+            position: absolute;
+            left: 7%;
+            bottom: 5%;
+            cursor: pointer;
+        }
+        .tentardnv:hover{
+            background-color: yellowgreen;
+            color: white;
+        }
+        .sairdaqui:hover{
+            background-color: red;
+            color: white;
         }
         @keyframes AnimacaoDoObstaculo {
             0%{
@@ -99,8 +195,21 @@
                 left: 45%;
             }
             100%{
-                left: -42.5vh;
+                left: -32.5%;
             }
+        }
+        @media screen and (max-width: 1000px) {
+            @keyframes AnimacaoDoObstaculo {
+            0%{
+                left: 100%;
+            }
+            50%{
+                left: 45%;
+            }
+            100%{
+                left: -55%;
+            }
+        }
         }
     </style>
 </head>
@@ -111,87 +220,111 @@
         <div id="colisaoDoPiso"></div>
         <div id="colisaoDoTeto"></div>
 
-        <div id="conjunto1" class="conjunto">
+        
             <img class="obstaculoinvertido" id="obstaculo1DoConjunto1" src="obstaculo.png">
             <img class="obstaculo" id="obstaculo2DoConjunto1" src="obstaculo.png">
-        </div>
-        
-        <div id="conjunto2">
+    
             <img src="obstaculo.png" class="obstaculo" id="obstaculo1DoConjunto2">
             <img src="obstaculo.png" class="obstaculoinvertido" id="obstaculo2DoConjunto2">
-        </div>
-
-        <div id="conjunto3">
             <img src="obstaculo.png" class="obstaculo" id="obstaculo1DoConjunto3">
             <img src="obstaculo.png" class="obstaculoinvertido" id="obstaculo2DoConjunto3">
-        </div>
-
-        <div id="conjunto4">
             <img src="obstaculo.png" class="obstaculo" id="obstaculo1DoConjunto4">
             <img src="obstaculo.png" class="obstaculoinvertido" id="obstaculo2DoConjunto4">
-        </div>
         <div id="PlacarDePontos"><p id="pontos">1</p></div>
+
+        <div id="centralizarteladegameoverflexi">
+            <div id="gameoverId">
+                <h1 id="gameovertitleId"></h1>
+                <p id="pontosfinaisId"></p>
+                    <p id="tentardnvId"></p>
+                
+                <a href="index.html">
+                    <p id="sairdaquiId"></p>
+                </a>
+            </div>
+        </div>
+
     </div>
     <script>
-
         let min = 1
         let max = 8
-        let tamanhominimo1 = 90
-        let tamanhomaximo1 = 200
+        let tamanhominimo1 = 40
+        let tamanhomaximo1 = 100
 
-        let tamanhominimo2 = 60
+        let tamanhominimo2 = 70
         let tamanhomaximo2 = 100
+        var isAnimating = false
 
-        function GerarNumeroAleatorio(min, max) {
-        numero = Math.floor(Math.random() * (max - min))
+function GerarNumeroAleatorio(min, max) {
+    if (isAnimating == false) {
+         numero = Math.floor(Math.random() * (max - min))
+    }
+}
+
+function GerarTamanhoAleatorio(tamanhomaximo1, tamanhominimo1){
+    tamanho = Math.floor(Math.random() * (tamanhomaximo1 - tamanhominimo1))
+    tamanho2 = Math.floor(Math.random() * (tamanhomaximo2 - tamanhominimo2))
+}
+
+setInterval(function() { 
+    GerarNumeroAleatorio(min, max)
+    GerarObstaculos()
+}, 1500)
+
+function GerarObstaculos() {
+    GerarTamanhoAleatorio(tamanhomaximo1, tamanhominimo1)
+    if(numero == 1 || numero == 2){
+        isAnimating = true;
+        document.getElementById("obstaculo1DoConjunto1").classList.add("obstaculoativado")
+        document.getElementById("obstaculo2DoConjunto1").classList.add("obstaculoativado")
+
+        document.getElementById("obstaculo1DoConjunto1").style.height = tamanho2 + "vh"
+        document.getElementById("obstaculo2DoConjunto1").style.height = tamanho + "vh"
+
+        function removerclass() {
+            document.getElementById("obstaculo1DoConjunto1").classList.remove("obstaculoativado")
+            document.getElementById("obstaculo2DoConjunto1").classList.remove("obstaculoativado")
+            isAnimating = false;
         }
-        function GerarTamanhoAleatorio(tamanhomaximo1, tamanhominimo1){
-            tamanho = Math.floor(Math.random() * (tamanhomaximo1 - tamanhominimo1))
-            tamanho2 = Math.floor(Math.random() * (tamanhomaximo2 - tamanhominimo2))
-        }
-        setInterval(function() { GerarNumeroAleatorio(min, max)
-            GerarTamanhoAleatorio(tamanhomaximo1, tamanhominimo1) 
-            GerarObstaculos()}, 1500)
-
-        function GerarObstaculos() {
-    
-            if(numero == 1 || numero == 2){
-                document.getElementById("obstaculo1DoConjunto1").classList.add("obstaculoativado")
-                document.getElementById("obstaculo2DoConjunto1").classList.add("obstaculoativado")
-
-                document.getElementById
-                ("obstaculo1DoConjunto1").style.height = tamanho2 + "vh"
-                document.getElementById
-                ("obstaculo1DoConjunto1").style.height = tamanho + "vh"
-            }
+        setTimeout(removerclass, 5000)
+    }
+}
+/*
             if(numero == 3 || numero == 4){
+                ObstaculoEmPercurso = true
                 document.getElementById("obstaculo1DoConjunto2").classList.add("obstaculoativado")
                 document.getElementById("obstaculo2DoConjunto2").classList.add("obstaculoativado")
 
                 document.getElementById
-                ("obstaculo1DoConjunto1").style.height = tamanho + "vh"
+                ("obstaculo1DoConjunto2").style.height = tamanho + "vh"
                 document.getElementById
-                ("obstaculo1DoConjunto1").style.height = tamanho2 + "vh"
+                ("obstaculo2DoConjunto2").style.height = tamanho2 + "vh"
+                function removerclass() {
+                    document.getElementById("obstaculo1DoConjunto2").classList.remove("obstaculoativado")
+                document.getElementById("obstaculo2DoConjunto2").classList.remove("obstaculoativado")
+                ObstaculoEmPercurso = false
+                }
+                setTimeout(removerclass, 5000)
             }
             if(numero == 5 || numero == 6){
                 document.getElementById("obstaculo1DoConjunto3").classList.add("obstaculoativado")
                 document.getElementById("obstaculo2DoConjunto3").classList.add("obstaculoativado")
 
                 document.getElementById
-                ("obstaculo1DoConjunto1").style.height = tamanho2 + "vh"
+                ("obstaculo1DoConjunto3").style.height = tamanho2 + "vh"
                 document.getElementById
-                ("obstaculo1DoConjunto1").style.height = tamanho + "vh"
+                ("obstaculo2DoConjunto3").style.height = tamanho + "vh"
         
             if(numero == 7 || numero == 8){
                 document.getElementById("obstaculo1DoConjunto4").classList.add("obstaculoativado")
                 document.getElementById("obstaculo2DoConjunto4").classList.add("obstaculoativado")
 
                 document.getElementById
-                ("obstaculo1DoConjunto1").style.height = tamanho + "vh"
+                ("obstaculo1DoConjunto4").style.height = tamanho + "vh"
                 document.getElementById
-                ("obstaculo1DoConjunto1").style.height = tamanho2 + "vh"
+                ("obstaculo2DoConjunto4").style.height = tamanho2 + "vh"
             }
-        }}
+        }*/
 
         let cenario = document.getElementById("fundodocenário")
         let birdsprite = document.getElementById("birdsprite")
