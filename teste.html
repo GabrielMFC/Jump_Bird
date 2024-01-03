@@ -273,6 +273,9 @@ setInterval(function() {
 
 function GerarObstaculos() {
     GerarTamanhoAleatorio(tamanhomaximo1, tamanhominimo1)
+    if (isAnimating) {
+        return;
+    }
     if(numero == 1 || numero == 2){
         isAnimating = true;
         document.getElementById("obstaculo1DoConjunto1").classList.add("obstaculoativado")
