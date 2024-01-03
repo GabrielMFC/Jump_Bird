@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Teste</title>
+    <title>Jump Bird</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Pixelify+Sans&display=swap" rel="stylesheet">
@@ -16,7 +16,10 @@
             position: fixed;
             width: 100%;
             height: 100%;
-            overflow: hidden; 
+            overflow: hidden;
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            user-select: none; 
         }
         a{
             text-decoration: none;
@@ -34,7 +37,7 @@
             height: 100%;
             z-index: 1;
         }
-        #fundodocenário{
+        #fundodocenario{
             position: absolute;
             width: 100%;
             height: 100%;
@@ -143,6 +146,9 @@
             justify-content: center;
             align-items: center;
             border-radius: 0%;
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            user-select: none;
         }
         .tentardnv{
             font-family: 'Pixelify Sans', sans-serif;
@@ -216,20 +222,23 @@
 <body id="corpo">
     <div id="fundo">
         <img id="birdsprite" class="PassaroCaindoATIVAR" src="birddown.png" alt="">
-        <img id="fundodocenário" src="cenario.png">
+        <img id="fundodocenario" src="cenario.png">
         <div id="colisaoDoPiso"></div>
         <div id="colisaoDoTeto"></div>
 
-        
+    <!--Conjunto 1-->
             <img class="obstaculoinvertido" id="obstaculo1DoConjunto1" src="obstaculo.png">
             <img class="obstaculo" id="obstaculo2DoConjunto1" src="obstaculo.png">
-    
+    <!--Conjunto 2-->
             <img src="obstaculo.png" class="obstaculo" id="obstaculo1DoConjunto2">
             <img src="obstaculo.png" class="obstaculoinvertido" id="obstaculo2DoConjunto2">
+    <!--Conjunto 3-->
             <img src="obstaculo.png" class="obstaculo" id="obstaculo1DoConjunto3">
             <img src="obstaculo.png" class="obstaculoinvertido" id="obstaculo2DoConjunto3">
+    <!--Conjunto 4-->
             <img src="obstaculo.png" class="obstaculo" id="obstaculo1DoConjunto4">
             <img src="obstaculo.png" class="obstaculoinvertido" id="obstaculo2DoConjunto4">
+
         <div id="PlacarDePontos"><p id="pontos">1</p></div>
 
         <div id="centralizarteladegameoverflexi">
@@ -248,11 +257,11 @@
     <script>
         let min = 1
         let max = 8
-        let tamanhominimo1 = 40
-        let tamanhomaximo1 = 100
+        let tamanhominimo1 = 30
+        let tamanhomaximo1 = 40
 
-        let tamanhominimo2 = 70
-        let tamanhomaximo2 = 100
+        let tamanhominimo2 = 100
+        let tamanhomaximo2 = 200
         var isAnimating = false
 
 function GerarNumeroAleatorio(min, max) {
@@ -271,63 +280,7 @@ setInterval(function() {
     GerarObstaculos()
 }, 1500)
 
-function GerarObstaculos() {
-    GerarTamanhoAleatorio(tamanhomaximo1, tamanhominimo1)
-    if (isAnimating) {
-        return;
-    }
-    if(numero == 1 || numero == 2){
-        isAnimating = true;
-        document.getElementById("obstaculo1DoConjunto1").classList.add("obstaculoativado")
-        document.getElementById("obstaculo2DoConjunto1").classList.add("obstaculoativado")
 
-        document.getElementById("obstaculo1DoConjunto1").style.height = tamanho2 + "vh"
-        document.getElementById("obstaculo2DoConjunto1").style.height = tamanho + "vh"
-
-        function removerclass() {
-            document.getElementById("obstaculo1DoConjunto1").classList.remove("obstaculoativado")
-            document.getElementById("obstaculo2DoConjunto1").classList.remove("obstaculoativado")
-            isAnimating = false;
-        }
-        setTimeout(removerclass, 5000)
-    }
-}
-/*
-            if(numero == 3 || numero == 4){
-                ObstaculoEmPercurso = true
-                document.getElementById("obstaculo1DoConjunto2").classList.add("obstaculoativado")
-                document.getElementById("obstaculo2DoConjunto2").classList.add("obstaculoativado")
-
-                document.getElementById
-                ("obstaculo1DoConjunto2").style.height = tamanho + "vh"
-                document.getElementById
-                ("obstaculo2DoConjunto2").style.height = tamanho2 + "vh"
-                function removerclass() {
-                    document.getElementById("obstaculo1DoConjunto2").classList.remove("obstaculoativado")
-                document.getElementById("obstaculo2DoConjunto2").classList.remove("obstaculoativado")
-                ObstaculoEmPercurso = false
-                }
-                setTimeout(removerclass, 5000)
-            }
-            if(numero == 5 || numero == 6){
-                document.getElementById("obstaculo1DoConjunto3").classList.add("obstaculoativado")
-                document.getElementById("obstaculo2DoConjunto3").classList.add("obstaculoativado")
-
-                document.getElementById
-                ("obstaculo1DoConjunto3").style.height = tamanho2 + "vh"
-                document.getElementById
-                ("obstaculo2DoConjunto3").style.height = tamanho + "vh"
-        
-            if(numero == 7 || numero == 8){
-                document.getElementById("obstaculo1DoConjunto4").classList.add("obstaculoativado")
-                document.getElementById("obstaculo2DoConjunto4").classList.add("obstaculoativado")
-
-                document.getElementById
-                ("obstaculo1DoConjunto4").style.height = tamanho + "vh"
-                document.getElementById
-                ("obstaculo2DoConjunto4").style.height = tamanho2 + "vh"
-            }
-        }*/
 
         let cenario = document.getElementById("fundodocenário")
         let birdsprite = document.getElementById("birdsprite")
@@ -390,6 +343,116 @@ function GerarObstaculos() {
             pontos.innerHTML = NumeroDosPontos
         }
         setInterval(AumentarPontos, 1000)
+
+        function GerarObstaculos() {
+    GerarTamanhoAleatorio(tamanhomaximo1, tamanhominimo1)
+    if (isAnimating) {
+        return;
+    }
+    if(numero == 1 || numero == 2){
+        isAnimating = true;
+        document.getElementById("obstaculo1DoConjunto1").classList.add("obstaculoativado")
+        document.getElementById("obstaculo2DoConjunto1").classList.add("obstaculoativado")
+
+        document.getElementById("obstaculo1DoConjunto1").style.height = tamanho2 + "vh"
+        document.getElementById("obstaculo2DoConjunto1").style.height = tamanho + "vh"
+
+        function removerclass() {
+            document.getElementById("obstaculo1DoConjunto1").classList.remove("obstaculoativado")
+            document.getElementById("obstaculo2DoConjunto1").classList.remove("obstaculoativado")
+            isAnimating = false;
+        }
+        setTimeout(removerclass, 5000)
+    }
+/*
+
+            if(numero == 3 || numero == 4){
+                ObstaculoEmPercurso = true
+                document.getElementById("obstaculo1DoConjunto2").classList.add("obstaculoativado")
+                document.getElementById("obstaculo2DoConjunto2").classList.add("obstaculoativado")
+
+                document.getElementById
+                ("obstaculo1DoConjunto2").style.height = tamanho + "vh"
+                document.getElementById
+                ("obstaculo2DoConjunto2").style.height = tamanho2 + "vh"
+                function removerclass2() {
+                    document.getElementById("obstaculo1DoConjunto2").classList.remove("obstaculoativado")
+                document.getElementById("obstaculo2DoConjunto2").classList.remove("obstaculoativado")
+                ObstaculoEmPercurso = false
+                }
+                setTimeout(removerclass2, 5000)
+            }
+            if(numero == 5 || numero == 6){
+                isAnimating = true
+                document.getElementById("obstaculo1DoConjunto3").classList.add("obstaculoativado")
+                document.getElementById("obstaculo2DoConjunto3").classList.add("obstaculoativado")
+
+                document.getElementById
+                ("obstaculo1DoConjunto3").style.height = tamanho2 + "vh"
+                document.getElementById
+                ("obstaculo2DoConjunto3").style.height = tamanho + "vh"
+
+                function removerclass3() {
+                    document.getElementById("obstaculo1DoConjunto3").classList.remove("obstaculoativado")
+                document.getElementById("obstaculo2DoConjunto3").classList.remove("obstaculoativado")
+                isAnimating = false
+                }
+                setTimeout(removerclass3, 5000)
+            }
+        
+            if(numero == 7 || numero == 8){
+                isAnimating = true
+                document.getElementById("obstaculo1DoConjunto4").classList.add("obstaculoativado")
+                document.getElementById("obstaculo2DoConjunto4").classList.add("obstaculoativado")
+
+                document.getElementById
+                ("obstaculo1DoConjunto4").style.height = tamanho + "vh"
+                document.getElementById
+                ("obstaculo2DoConjunto4").style.height = tamanho2 + "vh"
+
+                function removerclass4() {
+                    document.getElementById("obstaculo1DoConjunto4").classList.remove("obstaculoativado")
+                document.getElementById("obstaculo2DoConjunto4").classList.remove("obstaculoativado")
+                }
+                isAnimating = false
+            }*/
+        }
+        /*colisão*/
+        let canoNormal = document.querySelector("obstaculo")
+        let canoInvertido = document.querySelector("obstaculoinvertido")
+        let colisao = false;
+        function detectaColisao(birdsprite, canoNomal, canoInvertido) {
+
+    let birdspriteTopo = birdsprite.y;
+    let birdspriteFundo = birdsprite.y + birdsprite.altura;
+    let birdspriteEsquerda = birdsprite.x;
+    let birdspriteDireita = birdsprite.x + birdsprite.largura;
+
+    let canoInvertidoFundo = canoInvertido.y;
+    let canoInvertidoEsquerda = canoInvertido.x;
+    let canoInvertidoDireita = canoInvertido.x + canoInvertido.largura;
+
+    let canoNomalTopo = canoNomal.y + canoNomal.espaco;
+    let canoNomalEsquerda = canoNomal.x;
+    let canoNomalDireita = canoNomal.x + canoNomal.largura;
+
+    if (birdspriteFundo > canoInvertidoFundo && birdspriteEsquerda < canoInvertidoDireita && birdspriteDireita > canoInvertidoEsquerda) {
+        colisao = true;
+    }
+
+    if (birdspriteTopo < canoNomalTopo && birdspriteEsquerda < canoNomalDireita && birdspriteDireita > canoNomalEsquerda) {
+        colisao = true;
+    }
+
+    return colisao;
+}
+setInterval(() => {
+    if(colisao == true){
+        canoNormal.classList.remove("obstaculoativado")
+        canoInvertido.classList.remove("obstaculoativado")
+    }
+}, 0.1)
+/* Eu até tentaria resolver sozinho, mas eu estou a tanto tempo tentando que eu até perdi a vergonha na cara de copiar da internet.O que acontece é que eu estou fazendo um jogo e eu tenho dois obstaculos um no chão e outro no teto da tela (idêntico ao jogo: Flappy Bird), eu até consegui fazer a classe ser removida quando o passaro encostasse na parte esquerda do obstáculo, mas essa solução impedia do pássaro passar entre o cano de baixo e o cano de cima */
     </script>
 </body>
 </html
