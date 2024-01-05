@@ -77,10 +77,10 @@
         let min = 1
         let max = 8
         let tamanhominimo1 = 40
-        let tamanhomaximo1 = 90
+        let tamanhomaximo1 = 70
 
         let tamanhominimo2 = 40
-        let tamanhomaximo2 = 90
+        let tamanhomaximo2 = 70
         var isAnimating = false
 
 function GerarNumeroAleatorio(min, max) {
