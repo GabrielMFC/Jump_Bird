@@ -1,0 +1,210 @@
+*{
+    margin: 0%;
+    padding: 0%;
+}
+body, html{
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    user-select: none; 
+}
+a{
+    text-decoration: none;
+}
+#birdsprite{
+    position: absolute;
+    width: 13vh;
+    height: 13vh;
+    top: 40%;
+    z-index: 2;
+    left: 10%;
+}
+#fundo{
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+}
+#fundodocenario{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+}
+#colisaoDoPiso{
+    position: absolute;
+    bottom: 0%;
+    width: 100%;
+    height: 8vh;
+}
+#colisaoDoTeto{
+    position: absolute;
+    width: 100%;
+    height: 1vh;
+}
+.conjunto{
+    width: 115vw;
+    height: 115vh;
+}
+.obstaculo{
+    position: absolute;
+    right: 105%;
+    bottom: 7.7%;
+    width: 30vh;
+    height: 30vh;
+    margin-right: 20%;
+    margin-left: 20%;
+    z-index: 0;
+}
+.obstaculoinvertido{
+    position: absolute;
+    right: 105%;
+    width: 30vh;
+    height: 30vh;
+    transform: rotate(180deg);
+    top: 0%;
+    margin-right: 20%;
+    margin-left: 20%;
+    z-index: 0;
+}
+.obstaculoativado{
+    animation: AnimacaoDoObstaculo 5s infinite linear;
+}
+#PlacarDePontos{
+    position: absolute;
+    background-color: #FF8C00;
+    width: 25vh;
+    height: 8vh;
+    top: 0%;
+    right: 0;
+    border-radius: 0% 0% 0% 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid white;
+    border-top: none;
+}
+#pontos{
+    font-size: 5vh;
+    color: white;
+    font-family: 'Pixelify Sans', sans-serif;
+}
+#centralizarteladegameoverflexi{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.gameover{
+    position: absolute;
+    background-color: #FF8C00;
+    width: 40vh;
+    height: 50vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    border: 2px solid white;
+    border-radius: 10% 10% 10% 10%;
+}
+.gameovertitle{
+    font-family: 'Pixelify Sans', sans-serif;
+    color: black;
+    background-color: white;
+    font-size: 5vh;
+    position: absolute;
+    top: 10%;
+    width: 30vh;
+    height: 10vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10% 10% 10% 10%;
+}
+.pontosfinais{
+    position: absolute;
+    top: 35%;
+    background-color: white;
+    font-family: 'Pixelify Sans', sans-serif;
+    color: yellowgreen;
+    font-weight: bold;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 0%;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    user-select: none;
+}
+.tentardnv{
+    font-family: 'Pixelify Sans', sans-serif;
+    color: #FF8C00;
+    background-color: white;
+    font-weight: bold;
+    font-size: 3.2vh;
+    height: 10vh;
+    width: 30vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 5%;
+    border-radius: 10% 0% 10% 10%;
+    position: absolute;
+    left: 7%;
+    bottom: 30%;
+    cursor: pointer;
+}
+.sairdaqui{
+    font-family: 'Pixelify Sans', sans-serif;
+    color: #FF8C00;
+    background-color: white;
+    font-weight: bold;
+    font-size: 4vh;
+    height: 10vh;
+    width: 30vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 5%;
+    border-radius: 10% 0% 10% 10%;
+    position: absolute;
+    left: 7%;
+    bottom: 5%;
+    cursor: pointer;
+}
+.tentardnv:hover{
+    background-color: yellowgreen;
+    color: white;
+}
+.sairdaqui:hover{
+    background-color: red;
+    color: white;
+}
+@keyframes AnimacaoDoObstaculo {
+    0%{
+        left: 100%;
+    }
+    50%{
+        left: 45%;
+    }
+    100%{
+        left: -32.5%;
+    }
+}
+@media screen and (max-width: 1000px) {
+    @keyframes AnimacaoDoObstaculo {
+    0%{
+        left: 100%;
+    }
+    50%{
+        left: 45%;
+    }
+    100%{
+        left: -55%;
+    }
+}
+}
